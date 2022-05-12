@@ -1,0 +1,114 @@
+{% extends "stock-layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+<div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg)">
+    <div class="card-deck">
+        <div class="card" style="width: 20rem" bodyStyle="padding: '0'">
+            <div class="card-header">
+                SMALL CAP INDEX
+            </div>
+            
+                <!-- TradingView Widget BEGIN -->
+                <br>
+                <br>
+                    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/BSE-SMLCAP/" rel="noopener" target="_blank"></a></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                    {
+                    "symbol": "BSE:SMLCAP",
+                    "width": "315",
+                    "colorTheme": "light",
+                    "isTransparent": false,
+                    "locale": "in"
+                }
+                    </script>
+                
+                <!-- TradingView Widget END -->
+            
+        </div>
+        <div class="card" style="width: 20rem" bodyStyle="padding: '0'">
+            <div class="card-header">
+                BSE SENSEX
+            </div>
+            
+                <!-- TradingView Widget BEGIN -->
+                <br>
+                <br>
+                    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/BSE-SMLCAP/" rel="noopener" target="_blank"></a></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                    {
+                    "symbol": "INDEX:SENSEX",
+                    "width": "315",
+                    "colorTheme": "light",
+                    "isTransparent": false,
+                    "locale": "in"
+                }
+                    </script>
+                
+                <!-- TradingView Widget END -->
+            
+        </div>
+        <div class="card" style="width: 20rem" bodyStyle="padding: '0'">
+            <div class="card-header">
+                MID CAP INDEX
+            </div>
+            
+                <!-- TradingView Widget BEGIN -->
+                <br>
+                <br>
+                    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/BSE-SMLCAP/" rel="noopener" target="_blank"></a></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                    {
+                    "symbol": "BSE:MIDCAP",
+                    "width": "315",
+                    "colorTheme": "light",
+                    "isTransparent": false,
+                    "locale": "in"
+                }
+                    </script>
+                
+                <!-- TradingView Widget END -->
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <table class="table table-striped table-borderless">
+        <thead>
+        <tr>
+            <th><h5>Symbol<br>Company Name</h5></th>
+            <th><h5>Industrial Sector</h5></th>
+            <th><h5>Analyse</h5></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in data %}
+        <tr>
+            <td><h6><span style="font-size:25px;color: #4e5ec3">{{row[0]}}</span><br>{{row[1]}}</h6></td>
+            <td><h6><br>{{row[2]}}</h6></td>
+            <td>
+                <table>
+                    <td>
+                        <h7><a href={{row[3]}} target="_blank" rel="noopener noreferrer">Check Fundamentals</a></h7>
+                    </td>
+                    <td>
+                        <h7><a href={{row[4]}} target="_blank" rel="noopener noreferrer">Value Pickr Forum</a></h7>
+                    </td>
+                </table>
+            </td>
+        </tr>
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+</div>
+</div>
+{% endblock %}

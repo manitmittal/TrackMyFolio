@@ -1,0 +1,58 @@
+{% extends "stock-layout.html" %} {% block title %} Buy/Sell {% endblock %} {%
+block main %}
+<div class="container">
+  <form action="{{ url_for('addinvestor_stock') }}" method="post">
+    <fieldset>
+      <div class="form-group">
+        <input
+          autocomplete="off"
+          autofocus
+          class="form-control"
+          name="investor"
+          placeholder="Investor Name"
+          type="text"
+        />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Add this Investor to my Watchlist</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    {% for item in data %}
+    <tr>
+      <td>{{item[0]}}</td>
+      <td id="form">
+        <form action="{{ url_for('removeinvestor_stock') }}" method="post">
+          <input
+            autocomplete="off"
+            autofocus
+            class="form-control"
+            name="investor"
+            type="hidden"
+            value="{{item[0]}}"
+          />
+          <button
+            class="btn"
+            type="submit"
+            style="color: white; background: #fd5d5d"
+          >
+            Remove From My Watchlist
+          </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

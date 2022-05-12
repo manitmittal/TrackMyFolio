@@ -1,0 +1,25 @@
+{% extends "stock-layout.html" %} {% block title %} Latest Tweets {% endblock %} {%
+    block main %}
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Latest Tweets</th>
+          </tr>
+        </thead>
+        {% for row in data %}
+        <tr>
+          <td>{{row[0]}}</td>
+          <td>
+            <blockquote class="twitter-tweet">
+                <a href={{row[1]}}></a>
+            </blockquote>
+          </td>
+  
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endblock %}
+  

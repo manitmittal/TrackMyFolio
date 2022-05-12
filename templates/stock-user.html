@@ -1,0 +1,38 @@
+{% extends "stock-layout.html" %} {% block title %} Buddies {% endblock %} {%
+block main %}
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    {% for item in data %}
+    <tr>
+      <td>{{item[0]}}</td>
+      <td id="form">
+        <form action="{{ url_for('buddyfolio_stock') }}" method="post">
+          <input
+            autocomplete="off"
+            autofocus
+            class="form-control"
+            name="buddyid"
+            type="hidden"
+            value="{{item[1]}}"
+          />
+          <button
+            class="btn"
+            type="submit"
+            style="color: white; background: #fd5d5d"
+          >
+            View Portfolio
+          </button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}
